@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:padding="10dp"
+        android:text="Preddiplomski studij matematike"
+        android:id="@+id/undergraduate_math_button"
+        android:background="@drawable/border_radius_view"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:padding="10dp"
+        android:text="Nastavnički studij matematike i informatike"
+        android:id="@+id/education_math_button"
+        android:background="@drawable/border_radius_view"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:padding="10dp"
+        android:text="Diplomski studij - Financijska matematika i statistika"
+        android:id="@+id/financial_statistics_button"
+        android:background="@drawable/border_radius_view"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:padding="10dp"
+        android:text="Diplomski studij - Matematika i računarstvo"
+        android:id="@+id/computer_science_button"
+        android:background="@drawable/border_radius_view"/>
+</LinearLayout>

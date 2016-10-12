@@ -1,0 +1,28 @@
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#17695f</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="red_brown">#9e2729</color>
+    <color name="ash_grey">#abb2ba</color>
+    <color name="persian_red">#ca2f33</color>
+    <color name="lust">#dd2126</color>
+    <color name="rifle_green">#3e3e3e</color>
+    <color name="gainsboro">#dedede</color>
+    <color name="manatee">#979797</color>
+    <color name="light_gray">#d1d5da</color>
+    <color name="timberwolf">#d8d8d8</color>
+    <color name="wine">#772b2a</color>
+    <color name="ash_grey1">#adb3bc</color>
+    <color name="onyx">#161616</color>
+    <color name="manatee1">#9a9a9a</color>
+    <color name="silver">#c6c6c6</color>
+    <color name="light_gray2">#d6d6d6</color>
+    <color name="brandeis_blue">#0076ff</color>
+    <color name="deep_carmine_pink">#fe3824</color>
+    <color name="transparent">#00b8860b</color>
+    <color name="persian_plum">#6d1516</color>
+    <color name="light_gray1">#cecece</color>
+    <color name="dark_violet">#553175</color>
+</resources>

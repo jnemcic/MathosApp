@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_courses"
+            android:icon="@mipmap/ic_school_black_24dp"
+            android:title="My courses"/>
+        <item
+            android:id="@+id/nav_schedule"
+            android:icon="@mipmap/ic_event_note_black_24dp"
+            android:title="Schedule"/>
+        <item
+            android:id="@+id/nav_navigation"
+            android:icon="@mipmap/ic_navigation_black_24dp"
+            android:title="Navigation"/>
+        <item
+            android:id="@+id/nav_tomato"
+            android:icon="@mipmap/ic_access_alarm_black_24dp"
+            android:title="Tomato"/>
+    </group>
+
+    <item android:title="Settings">
+        <menu>
+            <item
+                android:id="@+id/nav_manage_courses"
+                android:icon="@mipmap/ic_playlist_add_black_24dp"
+                android:title="Manage Courses"/>
+            <item
+                android:id="@+id/nav_personalization"
+                android:icon="@mipmap/ic_color_lens_black_24dp"
+                android:title="Personalization"/>
+        </menu>
+    </item>
+
+</menu>
+
