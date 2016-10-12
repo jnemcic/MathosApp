@@ -17,18 +17,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Personalization extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView changeBackground;
-    private TextView changeColor;
-    private TextView uploadBackground;
-    private ImageView backgroundImage;
-    public static int backgroundSelector;
+    public static ImageView backgroundImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.personalization_activity_main);
+        setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -40,35 +36,8 @@ public class Personalization extends AppCompatActivity implements NavigationView
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        changeBackground = (TextView) findViewById(R.id.change_background_button);
-        changeColor = (TextView) findViewById(R.id.change_color_button);
-        uploadBackground = (TextView) findViewById(R.id.upload_background_button);
-
         backgroundImage = (ImageView) findViewById(R.id.background_image);
-        if (backgroundSelector == 0) {
-            backgroundImage.setBackgroundResource(R.drawable.wallpaper1);
-        }
-        changeBackground.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                backgroundImage.setBackgroundResource(R.drawable.background);
-                backgroundSelector = R.drawable.background;
-            }
-        });
-
-        changeColor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        uploadBackground.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        backgroundImage.setBackgroundResource(R.drawable.wallpaper1);
     }
 
     @Override
@@ -110,13 +79,11 @@ public class Personalization extends AppCompatActivity implements NavigationView
         } else if (id == R.id.nav_navigation) {
 
         } else if (id == R.id.nav_tomato) {
-            Intent intent = new Intent(this, Tomato.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_manage_courses) {
-
             Intent intent = new Intent(this, ManageCourses.class);
             startActivity(intent);
-
+        } else if (id == R.id.nav_manage_courses) {
+            Intent intent = new Intent(this, ManageCourses.class);
+            startActivity(intent);
         } else if (id == R.id.nav_personalization) {
             Intent intent = new Intent(this, Personalization.class);
             startActivity(intent);

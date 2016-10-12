@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TextView infoButton;
     private TextView studomatButton;
     private TextView webmailButton;
+    private ImageView backgroundImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         infoButton = (TextView) findViewById(R.id.info_button);
         studomatButton = (TextView) findViewById(R.id.studomat_button);
         webmailButton = (TextView) findViewById(R.id.webmail_button);
+        backgroundImage = (ImageView) findViewById(R.id.background_image);
+        if (Personalization.backgroundSelector == 0) {
+            backgroundImage.setImageResource(R.drawable.wallpaper1);
+        } else if (Personalization.backgroundSelector == R.drawable.wallpaper1) {
+            backgroundImage.setImageResource(R.drawable.wallpaper1);
+        } else if (Personalization.backgroundSelector == R.drawable.wallpaper) {
+            backgroundImage.setImageResource(R.drawable.wallpaper);
+        } else {
+            backgroundImage.setImageResource(R.drawable.background);
+        }
 
         webmailButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,14 +108,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_navigation) {
 
         } else if (id == R.id.nav_tomato) {
-
+            Intent intent = new Intent(this, Tomato.class);
+            startActivity(intent);
         } else if (id == R.id.nav_manage_courses) {
 
             Intent intent = new Intent(this, ManageCourses.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_personalization) {
-
+            Intent intent = new Intent(this, Personalization.class);
+            startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

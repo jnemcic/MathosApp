@@ -15,10 +15,10 @@
         android:alpha="0.5"
         android:baselineAlignBottom="false"
         android:scaleType="fitXY"
-        android:id="@+id/background_image"/>
+        android:id="@+id/background_image" />
 
     <include
-        layout="@layout/app_bar_main2"
+        layout="@layout/app_bar_main3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

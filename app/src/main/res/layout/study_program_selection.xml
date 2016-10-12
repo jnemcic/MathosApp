@@ -10,6 +10,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:padding="10dp"
+        android:textSize="13sp"
         android:text="Preddiplomski studij matematike"
         android:id="@+id/undergraduate_math_button"
         android:background="@drawable/border_radius_view"/>
@@ -19,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:padding="10dp"
+        android:textSize="13sp"
         android:text="Nastavnički studij matematike i informatike"
         android:id="@+id/education_math_button"
         android:background="@drawable/border_radius_view"/>
@@ -29,6 +31,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:padding="10dp"
+        android:textSize="13sp"
         android:text="Diplomski studij - Financijska matematika i statistika"
         android:id="@+id/financial_statistics_button"
         android:background="@drawable/border_radius_view"/>
@@ -38,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:padding="10dp"
+        android:textSize="13sp"
         android:text="Diplomski studij - Matematika i računarstvo"
         android:id="@+id/computer_science_button"
         android:background="@drawable/border_radius_view"/>

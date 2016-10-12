@@ -11,10 +11,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class EducationStudyProgram extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,10 +28,26 @@ public class EducationStudyProgram extends AppCompatActivity implements Navigati
     Course course;
     public ManageCoursesAdapter adapter;
 
+    List<String> allCourses =
+            new ArrayList<String>(Arrays.asList(new String[]{
+                    "Diferencijalni račun", "Geometrija ravnine i prostora", "Integralni račun", "Linearna algebra I", "Elementarna matematika I", "Elementarna matematika II", "Uvod u programiranje",
+                    "Uvod u računarstvo", "Strani jezik u struci I", "Tjelesna i zdravstvena kultura", "Funkcije više varijabli", "Kompleksna analiza", "Linearna algebra II", "Uvod u teoriju brojeva",
+                    "Elementarna geometrija", "Kombinatorna i diskretna matematika", "Uvod u strukture podataka i algoritme", "Elementarna fizika I", "Matematički alati", "Primjene diferencijalnog i integralnog računa I",
+                    "Strani jezik u struci II", "Tjelesna i zdravstvena kultura", "Realna analiza", "Algebra", "Numerička matematika", "Obične diferencijalne jednadžbe",
+                    "Uvod u teoriju skupova i matematičku logiku", "Uvod u vjerojatnost i statistiku", "Vektorski prostori", "Analitička geometrija", "Elementarna fizika II", "Osnove baza podataka",
+                    "Primjene diferencijalnog i integralnog računa II", "Uvod u računalne mreže i usluge", "Konveksni skupovi", "Nejednakosti", "Uredsko poslovanje", "Utjecaj grada na regiju Slavonije i obratno",
+                    "Metodika nastave matematike I", "Metrički prostori", "Statistički praktikum", "Grafovi", "WEB programiranje i primjene", "Didaktika I", "Pedagogija I",
+                    "Pedagogija II", "Psihologija odgoja i obrazovanja I", "Psihologija odgoja i obrazovanja II", "Vjerojatnost", "Financijska i aktuarska matematika", "Grupiranje podataka i primjene", "Konkretna matematika",
+                    "Linearno programiranje", "Složenost algoritama", "Uvod u teoriju integracije", "Uvod u teoriju mjere", "Znanstveno računalstvo", "Konveksne funkcije", "Neeuklidska geometrija",
+                    "Matematički praktikum", "Osnove umjetne inteligencije", "Metodika nastave matematike II", "Konstruktivna geometrija", "Metodika nastave informatike", "Didaktika II", "Diplomski seminar", "Povijest matematike",
+                    "Kriptografija i sigurnost sustava", "Metode optimizacije", "Teorija pouzdanosti", "Uvod u algebarsku topologiju", "Matematički aspekti izbornih sustava", "Matematički modeli",
+                    "Operacijska istraživanja", "Projektivna geometrija", "Računarski praktikum", "Učenička matematička natjecanja"}));
+    private ImageView backgroundImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.study_program_selection);
+        setContentView(R.layout.courses_activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -38,6 +58,41 @@ public class EducationStudyProgram extends AppCompatActivity implements Navigati
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        backgroundImage = (ImageView) findViewById(R.id.background_image);
+        if (Personalization.backgroundSelector == 0) {
+            backgroundImage.setImageResource(R.drawable.wallpaper1);
+        } else if (Personalization.backgroundSelector == R.drawable.wallpaper1) {
+            backgroundImage.setImageResource(R.drawable.wallpaper1);
+        } else if (Personalization.backgroundSelector == R.drawable.wallpaper) {
+            backgroundImage.setImageResource(R.drawable.wallpaper);
+        } else {
+            backgroundImage.setImageResource(R.drawable.background);
+        }
+
+        for (int i=0; i<allCourses.size(); ++i) {
+            course = new Course(allCourses.get(i), R.drawable.c);
+            listCourse.add(course);
+        }
+
+        listView = (ListView) findViewById(R.id.list);
+        adapter = new ManageCoursesAdapter(this, listCourse);
+        listView.setAdapter(adapter);
+        setListViewHeight();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                CheckBox checkbox = (CheckBox) view.findViewById(R.id.checkBox);
+
+                if (checkbox.isChecked()) {
+                    MyCourses.listCourseMyCourses.remove(i);
+                } else {
+                    MyCourses.listCourseMyCourses.add(listCourse.get(i));
+                    MyCourses.adapter.notifyDataSetChanged();
+                }
+            }
+        });
     }
 
     @Override
@@ -79,13 +134,16 @@ public class EducationStudyProgram extends AppCompatActivity implements Navigati
         } else if (id == R.id.nav_navigation) {
 
         } else if (id == R.id.nav_tomato) {
+            Intent intent = new Intent(this, Tomato.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_manage_courses) {
             Intent intent = new Intent(this, ManageCourses.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_personalization) {
-
+            Intent intent = new Intent(this, Personalization.class);
+            startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

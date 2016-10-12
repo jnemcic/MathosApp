@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,6 +23,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ManageCourses extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private ImageView backgroundImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,17 @@ public class ManageCourses extends AppCompatActivity implements NavigationView.O
         TextView educationButton = (TextView) findViewById(R.id.education_math_button);
         TextView finStatsButton = (TextView) findViewById(R.id.financial_statistics_button);
         TextView compScienceButton = (TextView) findViewById(R.id.computer_science_button);
+
+        backgroundImage = (ImageView) findViewById(R.id.background_image);
+        if (Personalization.backgroundSelector == 0) {
+            backgroundImage.setImageResource(R.drawable.wallpaper1);
+        } else if (Personalization.backgroundSelector == R.drawable.wallpaper1) {
+            backgroundImage.setImageResource(R.drawable.wallpaper1);
+        } else if (Personalization.backgroundSelector == R.drawable.wallpaper) {
+            backgroundImage.setImageResource(R.drawable.wallpaper);
+        } else {
+            backgroundImage.setImageResource(R.drawable.background);
+        }
 
         undergraduateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,11 +129,13 @@ public class ManageCourses extends AppCompatActivity implements NavigationView.O
         } else if (id == R.id.nav_navigation) {
 
         } else if (id == R.id.nav_tomato) {
-
+            Intent intent = new Intent(this, Tomato.class);
+            startActivity(intent);
         } else if (id == R.id.nav_manage_courses) {
 
         } else if (id == R.id.nav_personalization) {
-
+            Intent intent = new Intent(this, Personalization.class);
+            startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

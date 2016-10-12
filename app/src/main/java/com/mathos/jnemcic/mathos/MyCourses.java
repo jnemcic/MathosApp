@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -32,6 +33,7 @@ public class MyCourses extends AppCompatActivity implements NavigationView.OnNav
             new ArrayList<String>(Arrays.asList(new String[]{
             "Algoritmi na grafovima", "Dizajniranje i modeliranje baze podataka", "Funkcionalno programiranje", "Grupiranje podataka",
                     "Klijentsko web programiranje", "Matematička teorija računarstva", "Složenost algoritama", "Teorija odlučivanja"}));
+    private ImageView backgroundImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,17 @@ public class MyCourses extends AppCompatActivity implements NavigationView.OnNav
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        backgroundImage = (ImageView) findViewById(R.id.background_image);
+        if (Personalization.backgroundSelector == 0) {
+            backgroundImage.setImageResource(R.drawable.wallpaper1);
+        } else if (Personalization.backgroundSelector == R.drawable.wallpaper1) {
+            backgroundImage.setImageResource(R.drawable.wallpaper1);
+        } else if (Personalization.backgroundSelector == R.drawable.wallpaper) {
+            backgroundImage.setImageResource(R.drawable.wallpaper);
+        } else {
+            backgroundImage.setImageResource(R.drawable.background);
+        }
 
         int[] images={R.drawable.ego_graph,R.drawable.database,R.drawable.c,R.drawable.zupanije2,
                 R.drawable.logo,R.drawable.c,R.drawable.intro,R.drawable.to,R.drawable.to};
@@ -103,12 +116,14 @@ public class MyCourses extends AppCompatActivity implements NavigationView.OnNav
         } else if (id == R.id.nav_navigation) {
 
         } else if (id == R.id.nav_tomato) {
-
+            Intent intent = new Intent(this, Tomato.class);
+            startActivity(intent);
         } else if (id == R.id.nav_manage_courses) {
             Intent intent = new Intent(this, ManageCourses.class);
             startActivity(intent);
         } else if (id == R.id.nav_personalization) {
-
+            Intent intent = new Intent(this, Personalization.class);
+            startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -12,10 +12,10 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/wallpaper1"
         android:alpha="0.5"
         android:baselineAlignBottom="false"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        android:id="@+id/background_image"/>
 
     <include
         layout="@layout/app_bar_main"
